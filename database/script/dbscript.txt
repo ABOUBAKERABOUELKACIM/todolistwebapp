@@ -1,0 +1,18 @@
+create database 'todolistwebsite';
+use todolistwebsite;
+CREATE TABLE users (
+    id INT NOT NULL AUTO_INCREMENT,
+    email VARCHAR(255) NOT NULL,
+    username VARCHAR(255) NOT NULL,
+    mdp VARCHAR(255) NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE tasks (
+    id INT NOT NULL AUTO_INCREMENT,
+    goal VARCHAR(255) NOT NULL,
+    deadline DATE NOT NULL,
+    idusercreator INT NOT NULL,
+    PRIMARY KEY (id),
+    FOREIGN KEY (idusercreator) REFERENCES users(id)
+);
